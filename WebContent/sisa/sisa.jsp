@@ -29,8 +29,13 @@
   solution.put("노무현은 피아제 때문에 운지했다 ?", "O" );
   solution.put("4대강 사업은 성공한 사업이다", "O" );
   solution.put("문재인의 3년간 행보는 옳다", "X" );
-  solution.put("이낙연은 국민을 위한 정치인이다", "X" );
-    
+  solution.put("킹동권 사람들은 기본사상이 쓰레기 이다?", "O" );
+  solution.put("노무현은 정치를 제일 잘한다 ?", "X" );
+  solution.put("노무현의 직업은 가수이다?", "O" );
+  solution.put("노무현은 잘생겼다?", "X" );
+  solution.put("노무현은 귀엽다?", "O" );
+  solution.put("코로나 극복은 의료진이 아닌 문재인 떄문이다?", "X" );
+  solution.put("세월호는 정치적으로 이용당하지 않았다?", "X" );
    
 List<String> list = new ArrayList<String>();
 	list.add("박원순은 킹동권 성추행범이다?");  
@@ -42,10 +47,15 @@ List<String> list = new ArrayList<String>();
 	list.add("노무현은 피아제 때문에 운지했다 ?");
 	list.add("4대강 사업은 성공한 사업이다");
 	list.add("문재인의 3년간 행보는 옳다");
-	list.add("이낙연은 국민을 위한 정치인이다");
+	list.add("킹동권 사람들은 기본사상이 쓰레기 이다?");
+	list.add("노무현은 정치를 제일 잘한다 ?");
+	list.add("노무현의 직업은 가수이다?");
+	list.add("노무현은 잘생겼다?");
+	list.add("코로나 극복은 의료진이 아닌 문재인 떄문이다?");
+	list.add("세월호는 정치적으로 이용당하지 않았다?");
 	
 	double randam = Math.random();
-	int num = (int)(randam*10);
+	int num = (int)(randam*15);
 	String answp = list.get(num);
 	 
 	String ekq = solution.get(answp);
@@ -97,7 +107,7 @@ List<String> list = new ArrayList<String>();
 
 	<script language="JavaScript">
 
-		var SetTime = 3;		
+		var SetTime = 6;		
 
 		function msg_time() {	
 			
