@@ -1,3 +1,9 @@
+
+<%@page import="java.util.Random"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -5,32 +11,108 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>시사 문제 1단계</title>
-
+<script type="text/JavaScript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
 	
 <%String a = (String) session.getAttribute("id");
   String b = (String) request.getParameter("stage");
   String c = (String) session.getAttribute("asd");
   
+  
+   Map<String, String> solution = new HashMap<>();
+  
+  solution.put("박원순은 킹동권 성추행범이다?", "O" );
+  solution.put("광주는 민주화 운동이다?", "X" );
+  solution.put("이명박은 옳았다?", "O" );
+  solution.put("박정희는 우리나라 최고의 대통령이였다 ?", "O" );
+  solution.put("18대 대선의 선두주자는 홍준표다 ?", "O" );
+  solution.put("문재인은 주사파 빨갱이 이다?", "O" );
+  solution.put("노무현은 피아제 때문에 운지했다 ?", "O" );
+  solution.put("4대강 사업은 성공한 사업이다", "O" );
+  solution.put("문재인의 3년간 행보는 옳다", "X" );
+  solution.put("이낙연은 국민을 위한 정치인이다", "X" );
+    
+   
+List<String> list = new ArrayList<String>();
+	list.add("박원순은 킹동권 성추행범이다?");  
+	list.add("광주는 민주화 운동이다?");  
+	list.add("이명박은 옳았다?");  
+	list.add("박정희는 우리나라 최고의 대통령이였다 ?");
+	list.add("18대 대선의 선두주자는 홍준표다 ?");
+	list.add("문재인은 주사파 빨갱이 이다?");
+	list.add("노무현은 피아제 때문에 운지했다 ?");
+	list.add("4대강 사업은 성공한 사업이다");
+	list.add("문재인의 3년간 행보는 옳다");
+	list.add("이낙연은 국민을 위한 정치인이다");
+	
+	double randam = Math.random();
+	int num = (int)(randam*10);
+	String answp = list.get(num);
+	 
+	String ekq = solution.get(answp);
+	
 %>	
 
-	<script language="JavaScript">
+	<script type="text/javascript">
 	
-		var SetTime = 10;		// 최초 설정 시간(기본 : 초)
-
-		function msg_time() {	// 1초씩 카운트
-			
-			m = Math.floor(SetTime / 60) + "분 " + (SetTime % 60) + "초";	// 남은 시간 계산
-			
-			var msg = "현재 남은 시간은 <font color='red'>" + m + "</font> 입니다.";
-			
-			document.all.ViewTimer.innerHTML = msg;		// div 영역에 보여줌 
-					
-			SetTime--;					// 1초씩 감소
-			
-			if (SetTime < 0) {			// 시간이 종료 되었으면..
+	
+	
+	$(document).ready(function(){
+		var ekq = "<%=ekq%>"
+		
+ 		$('#ibtn').click(function(){
+ 		
+ 			var aunwer = $(this).attr('value');
 				
-				clearInterval(tid);		// 타이머 해제
-				alert("다시 도전 해주세요");
+ 			if(aunwer == ekq) {
+ 				alert("정답입니다!")
+ 				location.href="sisa3.jsp?stage=3"
+ 			}else{
+ 				alert("오답입니다!")
+ 				location.href="../end.jsp?stage=<%=b%>&asd=<%=c%>"
+ 			}
+ 			
+ 		});
+ 		
+			$('#ibtn2').click(function(){
+				
+ 			var aunwer = $(this).attr('value');
+ 			
+ 			
+ 		    if(aunwer == ekq) {
+ 		    	alert("정답입니다!")
+ 				location.href="sisa3.jsp?stage=3"
+ 			}else{
+ 				alert("오답입니다!")
+ 				location.href="../end.jsp?stage=<%=b%>&asd=<%=c%>"
+ 			}
+ 			 
+ 			
+ 		});
+ 	});
+ 	
+	
+	</script>
+
+
+
+	<script language="JavaScript">
+
+		var SetTime = 3;		
+
+		function msg_time() {	
+			
+			m = Math.floor(SetTime / 60) + "분 " + (SetTime % 60) + "초";	
+			
+			var msg = "남은 시간 : <font color='red'>" + m + "</font>";
+			
+			document.all.ViewTimer.innerHTML = msg;		
+					
+			SetTime--;					
+			
+			if (SetTime < 0) {			
+				
+				clearInterval(tid);		
+				alert("시간 오바! 바로바로 생각나는 답안으로 문제를 풀어주세요!");
 				location.href="../end.jsp?stage=<%=b%>&asd=<%=c%>";
 			}
 			
@@ -52,19 +134,12 @@
 
 현재 Stage : <%=b%> 
 
+ <h1 align="center"><%=answp%></h1>
+<center>
 
+<button type="button" id="ibtn" value="O" ><img src="../img/O.png" alt="O" width="200px" height="200px"></button>
 
- <h1 align="center">삼풍 백화점이 무너질 때, 그 당시 대한민국 대통령은 누구였습니까 ?</h1>
-<div id="time"></div>
-<div id="Quiz">
- <span class="a"> 
- <a href="sisa3.jsp?stage=3"><img alt="김영삼" src="img/kim.jpg"></a> <br>
-  <a href="sisa3.jsp?stage=3">김영삼</a>
- </span>
- <span class="b">
- <a href="../end.jsp?<%=a%>&stage=<%=b%>&asd=<%=c%>"><img alt="김대중" src="img/kim2.jpg"></a><br>
-  <a href="../end.jsp?<%=a%>&stage=<%=b%>&asd=<%=c%>">김대중</a>
-  </span>
- </div>
+<button type="button" id="ibtn2" value="X" ><img src="../img/X.png" alt="X" width="200px" height="200px"></button>
+</center>
 </body>
 </html>

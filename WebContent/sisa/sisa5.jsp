@@ -44,7 +44,7 @@ List<String> list = new ArrayList<String>();
 	list.add("이낙연은 국민을 위한 정치인이다");
 	
 	double randam = Math.random();
-	int num = (int)(randam*7);
+	int num = (int)(randam*10);
 	String answp = list.get(num);
 	 
 	String ekq = solution.get(answp);
@@ -63,8 +63,8 @@ List<String> list = new ArrayList<String>();
  			var aunwer = $(this).attr('value');
 				
  			if(aunwer == ekq) {
- 				alert("정답입니다!")
- 				location.href="sisa5.jsp?stage=5"
+ 				alert("모든 문제를 푸셨습니다! 당신은 대단해요~")
+ 				location.href="../good.jsp?stage=<%=b%>&asd=<%=c%>"
  			}else{
  				alert("오답입니다!")
  				location.href="../end.jsp?stage=<%=b%>&asd=<%=c%>"
@@ -79,7 +79,7 @@ List<String> list = new ArrayList<String>();
  			
  		    if(aunwer == ekq) {
  		    	alert("정답입니다!")
- 				location.href="sisa5.jsp?stage=5"
+ 				location.href="../good.jsp?stage=<%=b%>&asd=<%=c%>"
  			}else{
  				alert("오답입니다!")
  				location.href="../end.jsp?stage=<%=b%>&asd=<%=c%>"
