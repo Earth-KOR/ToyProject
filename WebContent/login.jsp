@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>환영합니다! 이상권의 스피드퀴즈</title>
 	
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
