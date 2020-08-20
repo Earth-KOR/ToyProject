@@ -16,7 +16,7 @@
     
     <script type="text/javascript">
 
-			alert(<%=ab%>+"님 게임을 시작합니다 !")
+			alert(<%=ab%>+"님 게임을 시작합니다 ! 만점을 기원할게여!")
 			
     </script> 
 
