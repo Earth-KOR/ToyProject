@@ -27,7 +27,7 @@
 
 ${param.id} 님 <br>
 
-현재 Stage : 문제 선택
+현재 Stage : 문제 선 택
 
 
 
